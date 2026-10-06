@@ -1,6 +1,6 @@
 // ACCOUNT PAYBEL REPOSITORY
 
-const odoo = require("../config/odoo");
+const odoo = require("../services/odoo");
 const MODEL = "/json/2/res.company";
 async function getAllCompany({ page = 1, limit = 1 } = {}) {
   const offset = (page - 1) * limit;

@@ -1,6 +1,6 @@
 // ACCOUNT RECEVABLE REPOSITORY
 
-const odoo = require("../config/odoo");
+const odoo = require("../services/odoo");
 
 const MODEL = "/json/2/account.move.line";
 async function getIvoiceProductDetails(line_id) {

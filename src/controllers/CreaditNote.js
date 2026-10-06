@@ -1,4 +1,4 @@
-const fat = require("../config/fat");
+const fat = require("../services/fat");
 const { getAllOdooCreaditNote } = require("../repositories/creaditnote.repo");
 const mapInvoiceToTca = require("../utils/mapInvoiceToTca ");
 

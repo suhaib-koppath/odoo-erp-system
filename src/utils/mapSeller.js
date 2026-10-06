@@ -18,7 +18,8 @@ const mapSeller = async (invoice) => {
     vat_identifier: 128965372400000,
     //  odooSeller.vat? odooSeller.vat: "",
 
-    tax_scheme: "",
+    tax_scheme: "IBT-031",
+    //check now
 
     tax_registration_identifier: "",
 

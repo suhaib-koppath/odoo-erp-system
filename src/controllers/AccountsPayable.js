@@ -1,6 +1,6 @@
 // ACCOUNT RECEVABLE CONTROLLERS
 
-const fat = require("../config/fat");
+const fat = require("../services/fat");
 const { getAllOdooInvoice } = require("../repositories/invoice.repo");
 const  mapInvoiceToTca  = require("../utils/mapInvoiceToTca ");
 

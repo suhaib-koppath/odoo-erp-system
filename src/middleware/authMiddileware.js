@@ -1,4 +1,4 @@
-const fat = require("../config/fat");
+const fat = require("../services/fat");
 const { readFileData, writeFileData } = require("../utils/handleFileData");
 const isTokenValid = require("../utils/isTokenValid");
 

@@ -1,4 +1,4 @@
-const fat = require("../../config/fat");
+const fat = require("../../services/fat");
 const { writeFileData } = require("../../utils/handleFileData");
 
 const createTokens = async (req, res) => {

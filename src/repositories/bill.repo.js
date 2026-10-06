@@ -1,6 +1,6 @@
 // ACCOUNT PAYBEL REPOSITORY
 
-const odoo = require("../config/odoo");
+const odoo = require("../services/odoo");
 const MODEL = "/json/2/account.move";
 async function getAllBill({ page = 1, limit = 10 } = {}) {
   const offset = (page - 1) * limit;

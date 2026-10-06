@@ -2,29 +2,30 @@
 
 const { default: axios } = require("axios");
 const fat = require("../services/fat");
-const { getAllOdooInvoice } = require("../repositories/invoice.repo");
 const mapInvoiceToTca = require("../utils/mapInvoiceToTca ");
+const  createInvoice  = require("../repositories/invoice.mongo.repo");
 
 function replaceWhitespaceWithUnderscore(text) {
   // Replaces all types of whitespace (spaces, tabs, newlines) with an underscore
   return text.replace(/[\s/]+/g, "_");
 }
 
-const uploadAndSubmitInvoice = async (req, res) => {
+const TodayOdooInvoiceSend = async (req, res) => {
   try {
-    const { data: invoices } = await getAllOdooInvoice();
+    const { invoices, token } = req.user;
     if (!invoices) throw new Error("Odoo Invoices Is Not Founded");
 
     const ERRORS = [];
     const RESPONSES = [];
 
+    console.log(req.user);
     for (const invoice of invoices) {
       try {
         const formatedInvoice = await mapInvoiceToTca(invoice);
         //UPLOADING START
         console.log(formatedInvoice.name);
         // STEP 1
-        const {data:fileUploadingSlot} = await fat.post(
+        const { data: fileUploadingSlot } = await fat.post(
           "/documents",
           {
             name: `${replaceWhitespaceWithUnderscore(formatedInvoice.name)}`,
@@ -32,30 +33,44 @@ const uploadAndSubmitInvoice = async (req, res) => {
           },
           {
             headers: {
-              Authorization: `Bearer ${req.user}`,
+              Authorization: `Bearer ${token}`,
               "Content-Type": "application/json",
             },
           },
         );
-         console.log("STEP 1 COMPLETED");
+        console.log("STEP 1 COMPLETED");
 
         // STEP 2
-        const {path:filePath,upload_url:uploadUrl} = fileUploadingSlot
+        const { path: filePath, upload_url: uploadUrl } = fileUploadingSlot;
 
-        const fileUploading = await axios.put(uploadUrl, formatedInvoice);
+        await axios.put(uploadUrl, formatedInvoice);
         console.log("STEP 2 COMPLETED");
 
         // STEP 3
-        const responseInvoice = await fat.post("/invoices", {
+        const {data:responseInvoice} = await fat.post(
+          "/invoices",
+          {
             ...formatedInvoice,
-            source:filePath
-        }, {
-          headers: {
-            Authorization: `Bearer ${req.user}`,
-            "Content-Type": "application/json",
+            source: filePath,
           },
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+              "Content-Type": "application/json",
+            },
+          },
+        );
+        RESPONSES.push(responseInvoice);
+        const mongo_invoice = await createInvoice({
+          odooInvoiceId: invoice.id,
+          odooInvoiceCreateDate: invoice.date,
+          odooInvoiceName: formatedInvoice.name,
+          platformInvoiceId: responseInvoice.id,
         });
-        RESPONSES.push(responseInvoice.data);
+        console.log("mongo_invoice");
+        console.log(mongo_invoice);
+        
+        
       } catch (error) {
         ERRORS.push({
           name: invoice.name,
@@ -76,9 +91,9 @@ const uploadAndSubmitInvoice = async (req, res) => {
     return res.status(500).json({
       success: false,
       message: "Failed to fetch Invoices",
-      error: error.response.data || error.message || "",
+      error: error.response?.data || error.message || "",
     });
   }
 };
 
-module.exports = uploadAndSubmitInvoice;
+module.exports = TodayOdooInvoiceSend;

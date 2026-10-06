@@ -1,4 +1,4 @@
-const fat = require("../config/fat");
+const fat = require("../services/fat");
 const { writeFileData, readFileData } = require("../utils/handleFileData");
 
 const RejectedOrFailedInvoices = async (req, res) => {

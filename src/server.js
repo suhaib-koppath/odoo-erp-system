@@ -12,11 +12,14 @@ const Odoo_Company_Routes = require("./routes/companyRoutes");
 const Fta_Routes = require("./routes/fatRoutes");
 const ERP_Routes = require("./routes/erpRoutes");
 const authMiddleware = require("./middleware/authMiddileware");
+const connectDB = require("./config/connectDB");
 
 const port = process.env.PORT;
 const app = express();
 
 app.use(express.json());
+
+ connectDB()
 
 app.use("/api/odoo/invoice", Odoo_Invoice_Routes);
 app.use("/api/odoo/bill", Odoo_Bill_Routes);
