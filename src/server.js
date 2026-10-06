@@ -4,13 +4,9 @@ const fs = require("fs");
 
 require("dotenv/config");
 
-const Odoo_Invoice_Routes = require("./routes/invoiceRoutes");
-const Odoo_Bill_Routes = require("./routes/billRoutes");
-const Odoo_Webhook_Routes = require("./routes/WebhookRoutes");
-const Odoo_Cutomer_Routes = require("./routes/customerRoutes");
-const Odoo_Company_Routes = require("./routes/companyRoutes");
 const Fta_Routes = require("./routes/fatRoutes");
 const ERP_Routes = require("./routes/erpRoutes");
+
 const authMiddleware = require("./middleware/authMiddileware");
 const connectDB = require("./config/connectDB");
 
@@ -21,11 +17,7 @@ app.use(express.json());
 
  connectDB()
 
-app.use("/api/odoo/invoice", Odoo_Invoice_Routes);
-app.use("/api/odoo/bill", Odoo_Bill_Routes);
-app.use("/api/odoo/webhook", Odoo_Webhook_Routes);
-app.use("/api/odoo/customer", Odoo_Cutomer_Routes);
-app.use("/api/odoo/company",Odoo_Company_Routes );
+
 // FAT APIS 
 app.use("/api/fat",Fta_Routes );
 app.use("/api/erp",ERP_Routes );

@@ -14,14 +14,7 @@ const router = express.Router();
 
 router.use(authMiddleware)
 
-router.post("/accounts-receivable",AccountsReceivable)
-router.post("/accounts-payble",AccountsPayble)
-router.post("/accounts-receivable-and-uploading",uploadAndSubmitInvoice)
-router.post("/creaditnote",CreaditNote)
-
-router.post("/rejected-and-failed-invoices",RejectedOrFailedInvoices)
-router.put("/resubmit/:status",Resubmit)
-
 //Today Invoice 
 router.post("/today-customer-invoices",todayInvoices,TodayOdooInvoiceSend)
+
 module.exports =  router;
