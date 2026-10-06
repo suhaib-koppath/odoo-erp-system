@@ -1,0 +1,512 @@
+[
+  {
+    "data": {
+      "id": "01a10b00-8f35-7ca1-bb8e-6f030b5ed900",
+      "name": "Invoice INV/26-27/0023",
+      "invoice_number": "INV/26-27/0023",
+      "issue_date": "2026-09-30",
+      "invoice_type_code": "380",
+      "source_file_path": null,
+      "invoice_xml_location_path": null,
+      "pdf_location_path": null,
+      "tdd_location_path": null,
+      "direction": 1,
+      "user_submitted": null,
+      "api_client_submitted": {
+        "id": "01a10acb-fa84-790c-b2ce-fa52e89782ab",
+        "name": "Nishin",
+        "organization": "01a10ac5-e38f-7b70-955d-1c2da8bec134",
+        "client_id": "01a10ac5e38f7b70955d1c2da8bec1346beba897e73542c5bac2c6abecd5b4d1",
+        "is_active": true,
+        "permissions": [
+          "document:delete",
+          "document:download",
+          "document:upload",
+          "document:view",
+          "invoice:submit",
+          "invoice:view"
+        ],
+        "created_by": {
+          "id": "01a0f2e1-ec9c-7c53-a3a6-6fd5c7334d12",
+          "email": "suhaibptb957@gmail.com",
+          "first_name": "SUHAIB",
+          "last_name": "K"
+        },
+        "created_at": "2026-10-05T06:41:43.185166Z",
+        "updated_at": "2026-10-05T06:41:43.185184Z"
+      },
+      "internal_validation_status": 2,
+      "internal_validation_error_message": "We're facing a temporary issue and couldn't finish processing this invoice. Please try resubmitting after some time.",
+      "c3_mls_status": 1,
+      "c3_mls_reason_code": null,
+      "c3_mls_error_message": null,
+      "c5_mls_status": 1,
+      "status": 3,
+      "can_resubmit": true,
+      "completed_at": null,
+      "detail": {
+        "process_control": {
+          "profile_id": "urn:peppol:bis:billing",
+          "customization_id": "urn:peppol:pint:billing-1@ae-1"
+        },
+        "seller": {
+          "identifiers": [],
+          "tax_registration_identifier": "",
+          "country_code": "IN",
+          "passport_issuing_country_code": "",
+          "name": "demo",
+          "trading_name": "",
+          "legal_registration_identifier": "",
+          "legal_registration_identifier_scheme": "",
+          "vat_identifier": "128965372400000",
+          "tax_scheme": "",
+          "tax_registration_tax_scheme": "",
+          "additional_legal_information": "",
+          "electronic_address": "1289653724",
+          "electronic_address_scheme": "",
+          "address_line_1": "",
+          "address_line_2": "",
+          "city": "",
+          "post_code": "",
+          "country_subdivision": "",
+          "contact_point": "",
+          "contact_telephone_number": "",
+          "contact_email_address": "suhaibptb957@gmail.com",
+          "address_line_3": "",
+          "authority_name": "",
+          "legal_registration_identifier_type": ""
+        },
+        "buyer": {
+          "country_code": "IN",
+          "passport_issuing_country_code": "",
+          "name": "ISHAL TRADING",
+          "trading_name": "ISHAL TRADING",
+          "identifier": "",
+          "identifier_scheme": "",
+          "legal_registration_identifier": "",
+          "legal_registration_identifier_scheme": "",
+          "vat_identifier": "",
+          "tax_scheme": "",
+          "electronic_address": "930298517",
+          "electronic_address_scheme": "0060",
+          "address_line_1": "335, ZAIDI FARM MANZOOR NAGAR, MEERUT, A",
+          "address_line_2": "",
+          "city": "Meerut",
+          "post_code": "250002",
+          "country_subdivision": "Uttar Pradesh (IN)",
+          "contact_point": "ISHAL TRADING",
+          "contact_telephone_number": "+917017259185",
+          "contact_email_address": "asi15021984@gmail.com",
+          "address_line_3": "",
+          "beneficiary_identifier": "",
+          "authority_name": "",
+          "legal_registration_identifier_type": ""
+        },
+        "payee": null,
+        "seller_tax_representative": null,
+        "delivery": null,
+        "totals": {
+          "sum_of_invoice_line_net_amount": "240.00",
+          "sum_of_allowances_on_document_level": "0.00",
+          "sum_of_charges_on_document_level": "0.00",
+          "invoice_total_amount_without_vat": "240.00",
+          "invoice_total_vat_amount": "0.00",
+          "invoice_total_vat_amount_in_accounting_currency": null,
+          "invoice_total_amount_with_vat": "240.00",
+          "paid_amount": "0.00",
+          "rounding_amount": "0.00",
+          "amount_due_for_payment": "240.00",
+          "invoice_total_amount_with_vat_in_aed": "240.00",
+          "tax_included_indicator": false
+        },
+        "preceding_invoice_references": [],
+        "allowances": [],
+        "charges": [],
+        "vat_breakdowns": [
+          {
+            "vat_category_code": "S",
+            "taxable_amount": "9700.00",
+            "tax_amount": "485.00",
+            "tax_scheme_code": "VAT",
+            "vat_category_rate": "5.00"
+          }
+        ],
+        "supporting_documents": [],
+        "payment_instructions": [
+          {
+            "remittance_information": [],
+            "account_country_code": null,
+            "payment_means_type_code": "B100",
+            "payment_means_text": null,
+            "payment_instructions_id": null,
+            "payment_account_identifier": null,
+            "payment_account_identifier_scheme": null,
+            "payment_account_name": null,
+            "payment_service_provider_identifier": null,
+            "payment_card_primary_account_number": null,
+            "payment_card_holder_name": null,
+            "mandate_reference_identifier": null,
+            "debited_account_identifier": null,
+            "account_address_line_1": null,
+            "account_address_line_2": null,
+            "account_city": null,
+            "account_post_code": null,
+            "account_country_subdivision": null,
+            "account_address_line_3": null
+          }
+        ],
+        "terms": [],
+        "lines": [
+          {
+            "allowances": [],
+            "charges": [],
+            "vat_info": [
+              {
+                "vat_category_code": "S",
+                "vat_rate": "5.00",
+                "tax_scheme": "VAT",
+                "vat_exemption_reason_text": "",
+                "vat_exemption_reason_code": ""
+              }
+            ],
+            "attributes": [
+              {
+                "name": "Color",
+                "value": "Mixed"
+              },
+              {
+                "name": "Packaging",
+                "value": "Standard Box"
+              }
+            ],
+            "classifications": [
+              {
+                "classification_identifier": "49019900",
+                "classification_identifier_scheme": "HS",
+                "classification_identifier_scheme_version": "2022"
+              }
+            ],
+            "service_accounting_codes": [
+              {
+                "scheme_identifier": "SAC",
+                "code": "4920",
+                "scheme_version_identifier": "20.1001"
+              }
+            ],
+            "item_country_of_origin": "AE",
+            "line_id": "1",
+            "note": "Supply and delivery of office supplies as per quotation QT-2026-001",
+            "object_identifier": "PO-LINE-001",
+            "object_identifier_scheme": "AAJ",
+            "invoiced_quantity": "100.000000",
+            "invoiced_quantity_unit_of_measure_code": "EA",
+            "line_net_amount": "10000.00",
+            "purchase_order_line_reference": "PO-2026-001-L1",
+            "buyer_accounting_reference": "COST-CENTER-001",
+            "purchase_order_reference": "PO-2026-001",
+            "despatch_advice_reference": "DESPATCH-2026-001",
+            "batch_number": "BATCH-2026-001",
+            "line_period_start_date": "2026-05-01",
+            "line_period_end_date": "2026-05-15",
+            "item_net_price": "100.000000",
+            "item_price_discount": "0.000000",
+            "item_gross_price": "100.000000",
+            "item_price_base_quantity": "1.000000",
+            "item_price_base_quantity_unit_of_measure_code": "EA",
+            "item_name": "Office Stationery Package",
+            "item_description": "Premium assorted office supplies including A4 paper, pens, folders, and desk accessories",
+            "item_sellers_identifier": "ITEM-SEL-12345",
+            "item_buyers_identifier": "ITEM-BUY-54321",
+            "item_standard_identifier": "5901234123457",
+            "item_standard_identifier_scheme": "0160",
+            "item_type": "G",
+            "type_of_goods_or_services": null,
+            "line_amount_in_aed": "10000.00",
+            "vat_line_amount_in_aed": "500.00"
+          }
+        ],
+        "transaction_type_code": "00000000",
+        "discrepancy_response_code": null,
+        "tax_currency_code": null,
+        "issue_time": null,
+        "invoice_currency_code": "AED",
+        "vat_point_date": null,
+        "payment_due_date": "2026-09-30",
+        "buyer_reference": "INV/26-27/0023",
+        "project_reference": null,
+        "contract_document_reference": null,
+        "purchase_order_reference": null,
+        "sales_order_reference": null,
+        "receipt_document_reference": null,
+        "despatch_document_reference": null,
+        "originator_document_reference": null,
+        "additional_document_reference_id": null,
+        "additional_document_reference_id_scheme": null,
+        "buyer_accounting_reference": null,
+        "invoice_note": null,
+        "currency_exchange_rate": null,
+        "contract_value": null,
+        "principal_identifier": null,
+        "customs_reference_number": null
+      },
+      "updated_at": "2026-10-05T08:39:08.647555Z",
+      "created_at": "2026-10-05T07:39:08.469666Z"
+    },
+    "error_message": "We're facing a temporary issue and couldn't finish processing this invoice. Please try resubmitting after some time."
+  },
+  {
+    "data": {
+      "id": "01a10afe-1684-7b4f-8488-c17f6178c78d",
+      "name": "Invoice INV/26-27/0024",
+      "invoice_number": "INV/26-27/0024",
+      "issue_date": "2026-09-30",
+      "invoice_type_code": "380",
+      "source_file_path": null,
+      "invoice_xml_location_path": null,
+      "pdf_location_path": null,
+      "tdd_location_path": null,
+      "direction": 1,
+      "user_submitted": null,
+      "api_client_submitted": {
+        "id": "01a10acb-fa84-790c-b2ce-fa52e89782ab",
+        "name": "Nishin",
+        "organization": "01a10ac5-e38f-7b70-955d-1c2da8bec134",
+        "client_id": "01a10ac5e38f7b70955d1c2da8bec1346beba897e73542c5bac2c6abecd5b4d1",
+        "is_active": true,
+        "permissions": [
+          "document:delete",
+          "document:download",
+          "document:upload",
+          "document:view",
+          "invoice:submit",
+          "invoice:view"
+        ],
+        "created_by": {
+          "id": "01a0f2e1-ec9c-7c53-a3a6-6fd5c7334d12",
+          "email": "suhaibptb957@gmail.com",
+          "first_name": "SUHAIB",
+          "last_name": "K"
+        },
+        "created_at": "2026-10-05T06:41:43.185166Z",
+        "updated_at": "2026-10-05T06:41:43.185184Z"
+      },
+      "internal_validation_status": 2,
+      "internal_validation_error_message": "We're facing a temporary issue and couldn't finish processing this invoice. Please try resubmitting after some time.",
+      "c3_mls_status": 1,
+      "c3_mls_reason_code": null,
+      "c3_mls_error_message": null,
+      "c5_mls_status": 1,
+      "status": 3,
+      "can_resubmit": true,
+      "completed_at": null,
+      "detail": {
+        "process_control": {
+          "profile_id": "urn:peppol:bis:billing",
+          "customization_id": "urn:peppol:pint:billing-1@ae-1"
+        },
+        "seller": {
+          "identifiers": [],
+          "tax_registration_identifier": "",
+          "country_code": "IN",
+          "passport_issuing_country_code": "",
+          "name": "demo",
+          "trading_name": "",
+          "legal_registration_identifier": "",
+          "legal_registration_identifier_scheme": "",
+          "vat_identifier": "128965372400000",
+          "tax_scheme": "",
+          "tax_registration_tax_scheme": "",
+          "additional_legal_information": "",
+          "electronic_address": "1289653724",
+          "electronic_address_scheme": "",
+          "address_line_1": "",
+          "address_line_2": "",
+          "city": "",
+          "post_code": "",
+          "country_subdivision": "",
+          "contact_point": "",
+          "contact_telephone_number": "",
+          "contact_email_address": "suhaibptb957@gmail.com",
+          "address_line_3": "",
+          "authority_name": "",
+          "legal_registration_identifier_type": ""
+        },
+        "buyer": {
+          "country_code": "IN",
+          "passport_issuing_country_code": "",
+          "name": "ADITYA BIRLA CAPITAL LIMITED",
+          "trading_name": "ADITYA BIRLA CAPITAL LIMITED",
+          "identifier": "",
+          "identifier_scheme": "",
+          "legal_registration_identifier": "",
+          "legal_registration_identifier_scheme": "",
+          "vat_identifier": "27AAGCA5936J2ZD",
+          "tax_scheme": "VAT",
+          "electronic_address": "650672962",
+          "electronic_address_scheme": "0060",
+          "address_line_1": "One World Centre, Tower-1,18th Floor, Jupiter Mill Compound,",
+          "address_line_2": "841, Senapati Bapat Marg, Elphinstone Road,",
+          "city": "Mumbai",
+          "post_code": "400 013",
+          "country_subdivision": "Maharashtra (IN)",
+          "contact_point": "ADITYA BIRLA CAPITAL LIMITED",
+          "contact_telephone_number": "+912267239101",
+          "contact_email_address": "abc.secretarial@adityabirlacapital.com",
+          "address_line_3": "",
+          "beneficiary_identifier": "",
+          "authority_name": "",
+          "legal_registration_identifier_type": ""
+        },
+        "payee": null,
+        "seller_tax_representative": null,
+        "delivery": null,
+        "totals": {
+          "sum_of_invoice_line_net_amount": "120.00",
+          "sum_of_allowances_on_document_level": "0.00",
+          "sum_of_charges_on_document_level": "0.00",
+          "invoice_total_amount_without_vat": "120.00",
+          "invoice_total_vat_amount": "0.00",
+          "invoice_total_vat_amount_in_accounting_currency": null,
+          "invoice_total_amount_with_vat": "120.00",
+          "paid_amount": "0.00",
+          "rounding_amount": "0.00",
+          "amount_due_for_payment": "120.00",
+          "invoice_total_amount_with_vat_in_aed": "120.00",
+          "tax_included_indicator": false
+        },
+        "preceding_invoice_references": [],
+        "allowances": [],
+        "charges": [],
+        "vat_breakdowns": [
+          {
+            "vat_category_code": "S",
+            "taxable_amount": "9700.00",
+            "tax_amount": "485.00",
+            "tax_scheme_code": "VAT",
+            "vat_category_rate": "5.00"
+          }
+        ],
+        "supporting_documents": [],
+        "payment_instructions": [
+          {
+            "remittance_information": [],
+            "account_country_code": null,
+            "payment_means_type_code": "B100",
+            "payment_means_text": null,
+            "payment_instructions_id": null,
+            "payment_account_identifier": null,
+            "payment_account_identifier_scheme": null,
+            "payment_account_name": null,
+            "payment_service_provider_identifier": null,
+            "payment_card_primary_account_number": null,
+            "payment_card_holder_name": null,
+            "mandate_reference_identifier": null,
+            "debited_account_identifier": null,
+            "account_address_line_1": null,
+            "account_address_line_2": null,
+            "account_city": null,
+            "account_post_code": null,
+            "account_country_subdivision": null,
+            "account_address_line_3": null
+          }
+        ],
+        "terms": [],
+        "lines": [
+          {
+            "allowances": [],
+            "charges": [],
+            "vat_info": [
+              {
+                "vat_category_code": "S",
+                "vat_rate": "5.00",
+                "tax_scheme": "VAT",
+                "vat_exemption_reason_text": "",
+                "vat_exemption_reason_code": ""
+              }
+            ],
+            "attributes": [
+              {
+                "name": "Color",
+                "value": "Mixed"
+              },
+              {
+                "name": "Packaging",
+                "value": "Standard Box"
+              }
+            ],
+            "classifications": [
+              {
+                "classification_identifier": "49019900",
+                "classification_identifier_scheme": "HS",
+                "classification_identifier_scheme_version": "2022"
+              }
+            ],
+            "service_accounting_codes": [
+              {
+                "scheme_identifier": "SAC",
+                "code": "4920",
+                "scheme_version_identifier": "20.1001"
+              }
+            ],
+            "item_country_of_origin": "AE",
+            "line_id": "1",
+            "note": "Supply and delivery of office supplies as per quotation QT-2026-001",
+            "object_identifier": "PO-LINE-001",
+            "object_identifier_scheme": "AAJ",
+            "invoiced_quantity": "100.000000",
+            "invoiced_quantity_unit_of_measure_code": "EA",
+            "line_net_amount": "10000.00",
+            "purchase_order_line_reference": "PO-2026-001-L1",
+            "buyer_accounting_reference": "COST-CENTER-001",
+            "purchase_order_reference": "PO-2026-001",
+            "despatch_advice_reference": "DESPATCH-2026-001",
+            "batch_number": "BATCH-2026-001",
+            "line_period_start_date": "2026-05-01",
+            "line_period_end_date": "2026-05-15",
+            "item_net_price": "100.000000",
+            "item_price_discount": "0.000000",
+            "item_gross_price": "100.000000",
+            "item_price_base_quantity": "1.000000",
+            "item_price_base_quantity_unit_of_measure_code": "EA",
+            "item_name": "Office Stationery Package",
+            "item_description": "Premium assorted office supplies including A4 paper, pens, folders, and desk accessories",
+            "item_sellers_identifier": "ITEM-SEL-12345",
+            "item_buyers_identifier": "ITEM-BUY-54321",
+            "item_standard_identifier": "5901234123457",
+            "item_standard_identifier_scheme": "0160",
+            "item_type": "G",
+            "type_of_goods_or_services": null,
+            "line_amount_in_aed": "10000.00",
+            "vat_line_amount_in_aed": "500.00"
+          }
+        ],
+        "transaction_type_code": "00000000",
+        "discrepancy_response_code": null,
+        "tax_currency_code": null,
+        "issue_time": null,
+        "invoice_currency_code": "AED",
+        "vat_point_date": null,
+        "payment_due_date": "2026-09-30",
+        "buyer_reference": "INV/26-27/0024",
+        "project_reference": null,
+        "contract_document_reference": null,
+        "purchase_order_reference": null,
+        "sales_order_reference": null,
+        "receipt_document_reference": null,
+        "despatch_document_reference": null,
+        "originator_document_reference": null,
+        "additional_document_reference_id": null,
+        "additional_document_reference_id_scheme": null,
+        "buyer_accounting_reference": null,
+        "invoice_note": null,
+        "currency_exchange_rate": null,
+        "contract_value": null,
+        "principal_identifier": null,
+        "customs_reference_number": null
+      },
+      "updated_at": "2026-10-05T08:36:26.687169Z",
+      "created_at": "2026-10-05T07:36:26.500813Z"
+    },
+    "error_message": "We're facing a temporary issue and couldn't finish processing this invoice. Please try resubmitting after some time."
+  }
+]
