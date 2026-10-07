@@ -1,9 +1,12 @@
 // ACCOUNT RECEVABLE CONTROLLERS
 
-const { default: axios } = require("axios");
+const axios = require("axios");
 const fat = require("../services/fat");
 const mapInvoiceToTca = require("../utils/mapInvoiceToTca ");
-const  createInvoice  = require("../repositories/invoice.mongo.repo");
+const {
+  createInvoice,
+  updateInvoiceByOdooInvoiceId,
+} = require("../repositories/invoice.mongo.repo");
 
 function replaceWhitespaceWithUnderscore(text) {
   // Replaces all types of whitespace (spaces, tabs, newlines) with an underscore
@@ -18,11 +21,15 @@ const TodayOdooInvoiceSend = async (req, res) => {
     const ERRORS = [];
     const RESPONSES = [];
 
-    console.log(req.user);
     for (const invoice of invoices) {
       try {
         const formatedInvoice = await mapInvoiceToTca(invoice);
-        //UPLOADING START
+        await createInvoice({
+          odooInvoiceId: invoice.id,
+          odooInvoiceCreateDate: invoice.date,
+          odooInvoiceName: formatedInvoice.name,
+        });
+        // UPLOADING START
         console.log(formatedInvoice.name);
         // STEP 1
         const { data: fileUploadingSlot } = await fat.post(
@@ -47,7 +54,7 @@ const TodayOdooInvoiceSend = async (req, res) => {
         console.log("STEP 2 COMPLETED");
 
         // STEP 3
-        const {data:responseInvoice} = await fat.post(
+        const { data: responseInvoice } = await fat.post(
           "/invoices",
           {
             ...formatedInvoice,
@@ -61,16 +68,13 @@ const TodayOdooInvoiceSend = async (req, res) => {
           },
         );
         RESPONSES.push(responseInvoice);
-        const mongo_invoice = await createInvoice({
-          odooInvoiceId: invoice.id,
-          odooInvoiceCreateDate: invoice.date,
-          odooInvoiceName: formatedInvoice.name,
+
+        console.log("STEP 3 COMPLETED");
+        await updateInvoiceByOdooInvoiceId(invoice.id, {
+          status: "complete",
           platformInvoiceId: responseInvoice.id,
+          platformSentDate: responseInvoice.created_at,
         });
-        console.log("mongo_invoice");
-        console.log(mongo_invoice);
-        
-        
       } catch (error) {
         ERRORS.push({
           name: invoice.name,

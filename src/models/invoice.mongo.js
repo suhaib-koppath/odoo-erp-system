@@ -25,6 +25,11 @@ const invoiceSchema = new mongoose.Schema(
       type: Date,
       default: null,
     },
+    status: {
+      type: String,
+      enum: ["pending", "complete"],
+      default: "pending",
+    },
   },
   {
     timestamps: true,

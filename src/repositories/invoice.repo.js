@@ -58,7 +58,7 @@ async function getAllOdooInvoiceByToday(page = 1, limit = 1) {
   // const startOfDay = `${today} 00:00:00`;
 
   const tomorrow = new Date();
-  tomorrow.setDate(tomorrow.getDate() + 1);
+  tomorrow.setDate(tomorrow.getDate() + 2);
 
   const startOfDay = `${tomorrow.toISOString().split("T")[0]} 00:00:00`;
 

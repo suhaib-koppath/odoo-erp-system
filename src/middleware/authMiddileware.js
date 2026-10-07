@@ -6,7 +6,11 @@ const authMiddleware = async (req, res, next) => {
   const fileData = await readFileData();
 
   const isValid = await isTokenValid(fileData.expires_at);
-  if (!fileData?.expires_at || !fileData?.refresh_token || !fileData?.access_token)
+  if (
+    !fileData?.expires_at ||
+    !fileData?.refresh_token ||
+    !fileData?.access_token
+  )
     res.status(401).json({
       message: "please generate your access token",
     });
