@@ -3,8 +3,15 @@ const mapTotals = (invoice) => {
   const amountResidual = parseFloat(invoice.amount_residual || 0);
   const amountUntaxed = parseFloat(invoice.amount_untaxed || 0);
   const amountTax = parseFloat(invoice.amount_tax || 0);
+console.log("Buyer");
+  console.log(invoice.amount_total);
+  console.log(invoice.amount_residual);
+  console.log(invoice.amount_untaxed);
+  console.log(invoice.amount_total);
 
+  console.log("End Buyer");
   const formattedTotals = {
+    // Sum of all invoice line net amounts (Total before adding tax).
     sum_of_invoice_line_net_amount: amountUntaxed.toFixed(2),
 
     sum_of_allowances_on_document_level: "0.00",

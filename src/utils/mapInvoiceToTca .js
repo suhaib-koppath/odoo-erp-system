@@ -1,4 +1,4 @@
-const { getIvoiceProductDetails } = require("../repositories/product.repo");
+const { getIvoiceProductDetails } = require("../repositories/account.move.line");
 const getCurrencyCode = require("./getCurrencyCode");
 const getInvoiceTypeCode = require("./getInvoiceTypeCode");
 const mapBuyer = require("./mapBuyer");
@@ -8,33 +8,18 @@ const mapSeller = require("./mapSeller");
 const mapTotals = require("./mapTotals");
 const mapVatBreakdown = require("./mapVatBreackdowns");
 
-const mapInvoiceToTca = async (odooInvoice, creaditNote) => {
-  let fileds = {};
-  if (creaditNote && odooInvoice.reversed_entry_id)
-    fileds = {
-      detail: {
-        preceding_invoice_references:"81",
-        discrepancy_response_code: "DL8.61.1.A",
-        preceding_invoice_references: [
-          {
-            preceding_invoice_reference: odooInvoice.reversed_entry_id[1],
-          },
-        ],
-        credit_note_reason: "Order Cancelled / Returned",
-      },
-    };
+const mapInvoiceToTca = async (odooInvoice) => {
   return {
-    name: `Invoice ${odooInvoice.name}`,
+    name: `${odooInvoice.type_name} ${odooInvoice.name}`,
     invoice_number: odooInvoice.name,
     issue_date: odooInvoice.invoice_date || odooInvoice.date,
     invoice_type_code: getInvoiceTypeCode(odooInvoice.move_type),
     detail: {
-      ...fileds.detail,
-      payment_due_date: odooInvoice.invoice_date_due ?? "",
-      payment_instructions: mapPaymentInstructions(odooInvoice),
+      payment_due_date: odooInvoice.invoice_date_due?odooInvoice.invoice_date_due: "",
+      payment_instructions: await mapPaymentInstructions(odooInvoice.matched_payment_ids),
       invoice_currency_code: getCurrencyCode(odooInvoice.currency_id),
-      buyer_reference:
-        odooInvoice.routing_identifier || odooInvoice.payment_reference || "",
+      // check 
+      buyer_reference:odooInvoice.ref || odooInvoice.display_name || "",
 
       seller: await mapSeller(odooInvoice),
       buyer: await mapBuyer(odooInvoice),

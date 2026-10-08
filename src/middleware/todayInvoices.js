@@ -1,5 +1,5 @@
 const fat = require("../services/fat");
-const { getAllOdooInvoiceByToday } = require("../repositories/invoice.repo");
+const { getAllOdooInvoiceByToday } = require("../repositories/account.move");
 
 const todayInvoices = async (req, res, next) => {
   try {

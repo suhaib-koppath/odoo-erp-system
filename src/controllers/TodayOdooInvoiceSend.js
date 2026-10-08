@@ -6,7 +6,7 @@ const mapInvoiceToTca = require("../utils/mapInvoiceToTca ");
 const {
   createInvoice,
   updateInvoiceByOdooInvoiceId,
-} = require("../repositories/invoice.mongo.repo");
+} = require("../repositories/invoiceMongo.repo");
 
 function replaceWhitespaceWithUnderscore(text) {
   // Replaces all types of whitespace (spaces, tabs, newlines) with an underscore
@@ -23,6 +23,8 @@ const TodayOdooInvoiceSend = async (req, res) => {
 
     for (const invoice of invoices) {
       try {
+        if(!invoice.name) throw new Error("The invoice is still in draft");
+        
         const formatedInvoice = await mapInvoiceToTca(invoice);
         await createInvoice({
           odooInvoiceId: invoice.id,
@@ -77,7 +79,8 @@ const TodayOdooInvoiceSend = async (req, res) => {
         });
       } catch (error) {
         ERRORS.push({
-          name: invoice.name,
+          name: invoice.name ,
+          id: invoice.id ,
           error_data: error.response?.data || error.message || "",
         });
         continue;

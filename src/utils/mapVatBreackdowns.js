@@ -1,7 +1,9 @@
 function mapVatBreakdown(invoice){
     return  [
         {
+          // Sum of all taxable amounts subject to this VAT category
           taxable_amount: "9700.00",
+          
           tax_amount: "485.00",
           vat_category_code: "S",
           tax_scheme_code: "VAT",

@@ -8,7 +8,7 @@ async function getAllOdooInvoice(page = 2, limit = 1) {
   const { data } = await odoo.post(`${MODEL}/search_read`, {
     domain: [
       ["move_type", "=", "out_invoice"], // Get only vendor bills
-      ["company_id", "=", 1],
+      // ["company_id", "=", 1],
     ],
     // "fields": [
     //     "id","partner_id","name","invoice_date","date",
@@ -28,7 +28,7 @@ async function getAllOdooInvoice(page = 2, limit = 1) {
     nextPage: data.length === limit ? page + 1 : null,
   };
 }
-async function getOdooInvoiceById(invoiceId) {
+async function getOdooInvoiceById(invoiceId = null) {
   if (!invoiceId) {
     throw new Error("Invoice ID is required");
   }
@@ -36,22 +36,25 @@ async function getOdooInvoiceById(invoiceId) {
   try {
     // Usually GET for retrieving records
     const { data: invoice } = await odoo.post(`${MODEL}/search_read`, {
-      domain: [["id", "=", Number(invoiceId)]],
+      domain: [
+        // ["company_id", "=", 1],
+        ["move_type", "=", "out_invoice"],
+        ["id", "=", Number(invoiceId)],
+      ],
     });
 
     // Odoo read method returns an array of records
     return Array.isArray(invoice) ? invoice[0] : invoice;
     // return invoice;
   } catch (error) {
-    console.error(
-      "Error fetching invoice:",
-      error.response?.data || error.message,
-    );
+    // console.error(
+    //   "Error fetching invoice:",
+    //   error.response?.data || error.message,
+    // );
     throw error.message;
   }
 }
-
-// feature/today-invoice-and-dbconnection branch
+// READ ALL TODAY CUSTOMER INVOICES
 async function getAllOdooInvoiceByToday(page = 1, limit = 1) {
   const offset = (page - 1) * limit; // Calculate pagination offset
   //  const today = new Date().toISOString().split('T')[0];
@@ -85,8 +88,42 @@ async function getAllOdooInvoiceByToday(page = 1, limit = 1) {
     nextPage: data.length === limit ? page + 1 : null,
   };
 }
+// READ ALL TODAY CREADITNOTES
+// async function getOdooCreaditNotesByToday(page = 1, limit = 1) {
+//   const offset = (page - 1) * limit; // Calculate pagination offset
+//   const today = new Date().toISOString().split("T")[0];
+//   const startOfDay = `${today} 00:00:00`;
+
+//   // const tomorrow = new Date();
+//   // tomorrow.setDate(tomorrow.getDate() + 1);
+//   // const startOfDay = `${tomorrow.toISOString().split("T")[0]} 00:00:00`;
+
+//   const { data } = await odoo.post(`${MODEL}/search_read`, {
+//     domain: [
+//       ["move_type", "=", "out_refund"], // Get only vendor bills
+//       // ["company_id", "=", 1],
+//       ["date", ">=", startOfDay],
+//       // create_date
+//     ],
+//     // "fields": [
+//     //     "id","name","invoice_date"
+//     // ],
+//     limit, // Number of records per page
+//     offset, // Records to skip
+//     order: "id desc", // Latest invoices first,
+//   });
+
+//   return {
+//     data,
+//     currentPage: page,
+//     limit,
+//     hasNextPage: data.length === limit,
+//     nextPage: data.length === limit ? page + 1 : null,
+//   };
+// }
 module.exports = {
   getAllOdooInvoice,
   getOdooInvoiceById,
   getAllOdooInvoiceByToday,
+  // getOdooCreaditNotesByToday
 };
